@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FieldTypes >
+  <FieldType>
+    <Field Name="TypeName">SPAttachmentField</Field>
+    <Field Name="InternalType">SPAttachmentField</Field>
+    <Field Name="TypeDisplayName">$Resources:SPAttachmentField,FieldType_DisplayName;</Field>
+    <Field Name="TypeShortDescription">$Resources:SPAttachmentField,FieldType_ShortDescription;</Field>
+    <Field Name="ParentType">Text</Field>
+    <Field Name="UserCreatable">TRUE</Field>
+    <Field Name="ShowInListCreate">TRUE</Field>
+    <Field Name="ShowInSurveyCreate">FALSE</Field>
+    <Field Name="ShowInNewForm">FALSE</Field>
+    <Field Name="ShowInDisplayForm">FALSE</Field>
+    <Field Name="ShowInViewForms">FALSE</Field>
+    <Field Name="ShowInDocumentLibraryCreate">FALSE</Field>
+    <Field Name="ShowInColumnTemplateCreate">TRUE</Field>
+    <Field Name="FieldTypeClass">SP2010.Controls.AttachmentField.SPAttachmentField, SP2010.Controls.AttachmentField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d16d4fa4411244c6</Field>
+    <Field Name="FieldEditorUserControl">/_controltemplates/SPAttachmentFieldEditor.ascx</Field>
+    <Field Name="AllowBaseTypeRendering">TRUE</Field>
+    <Field Name="CAMLRendering">TRUE</Field>
+    <PropertySchema>
+      <Fields/>
+    </PropertySchema>
+    <RenderPattern Name="DisplayPattern">
+      <SetVar Name="ID">
+        <Counter />
+      </SetVar>
+      <HTML><![CDATA[<script type="text/javascript" src="/_layouts/SP2010.Controls.AttachmentField/jquery-1.8.2.min.js" mce_src="/_layouts/SP2010.Controls.AttachmentField/jquery-1.8.2.min.js" ></script>]]></HTML>
+      <HTML><![CDATA[<script type="text/javascript">]]></HTML>
+      <HTML>
+        <![CDATA[
+        var listname=']]>
+      </HTML>
+      <List/>
+      <HTML>
+        <![CDATA[';
+        var currentWeb=']]>
+      </HTML>
+      <HttpVDir CurrentWeb="TRUE" />
+      <HTML>
+        <![CDATA[';
+$(document).ready(function() {
+      var soapEnv ="<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>\
+      <soap:Body>\
+      <GetAttachmentCollection xmlns='http://schemas.microsoft.com/sharepoint/soap/'>\
+      <listName>"+listname+"</listName>\
+    <listItemID>]]>
+      </HTML>
+      <Column Name="ID" />
+      <HTML>
+        <![CDATA[</listItemID>\
+    </GetAttachmentCollection>\
+    </soap:Body>\
+    </soap:Envelope>";
+    
+      $.ajax({
+      url: currentWeb + "/_vti_bin/lists.asmx",
+      type: "POST",
+      dataType: "xml",
+      data: soapEnv,
+      async: true,
+      complete: processResult]]>
+      </HTML>
+      <GetVar Name="ID" />
+      <HTML>
+        <![CDATA[,
+      contentType: "text/xml; charset=\"utf-8\""});
+});
+      
+function processResult]]>
+      </HTML>
+      <GetVar Name="ID" />
+      <HTML>
+        <![CDATA[(xData, status) {  
+         $("#data_]]>
+      </HTML>
+      <Column Name="ID" />
+      <HTML>
+        <![CDATA[").empty();
+        
+      $(xData.responseXML).find("Attachment").each(function() {
+      $("#data_]]>
+      </HTML>
+      <Column Name="ID" />
+      <HTML>
+        <![CDATA[").append("<img src=\"/_layouts/images/attachhd.gif\" ><span style=\"position:relative;top:-4px;\"><a href='"+$(this).text()+"'>" +GetFilename($(this).text()) + "</a></span></img></br>");
+});
+
+      if(!$("#data_]]>
+      </HTML>
+      <Column Name="ID" />
+      <HTML>
+        <![CDATA[").html()) {
+      $("#data_]]>
+      </HTML>
+      <Column Name="ID" />
+      <HTML>
+        <![CDATA[").append("<img src=\"/_layouts/images/info16by16.gif\" />&nbsp;<span style=\"position:relative;top:-4px;\">$Resources:SPAttachmentField,FieldType_NoAttachmants;</span>");
+      }
+}]]>
+      </HTML>
+      <HTML>
+        <![CDATA[
+      function GetFilename(path) {
+        var last_index = path.lastIndexOf('/');
+        return path.substring(last_index+1, path.length);
+      }
+      ]]>
+      </HTML>
+      <HTML><![CDATA[</script>]]></HTML>
+      <HTML><![CDATA[<div id="data_]]></HTML>
+      <Column Name="ID" />
+      <HTML><![CDATA["><img src="/_layouts/images/SP2010.Controls.AttachmentField/Kpiprogressbar.gif"></div>]]></HTML>
+    </RenderPattern>
+  </FieldType>
+</FieldTypes>

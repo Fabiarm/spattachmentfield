@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="9d199c08-1844-4bde-bae9-82c4d90dc2fa" solutionId="9d199c08-1844-4bde-bae9-82c4d90dc2fa" resetWebServer="false" title="Display attachments (list view)" description="The field to display of attachments of list items in list view. The following types of list can not be support the field: document library, image library, links, surveys. Created by Smart84 (http://www.codeplex.com/site/users/view/smart84)" name="SP2010.Controls.AttachmentField" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="7bdc8630-9038-4533-b8be-540d9ddfea27" />
+    <projectItemReference itemId="6467b95f-61d5-467c-86d7-12c27ddd71f9" />
+    <projectItemReference itemId="34d633f9-e471-4f9d-9027-699c04070cac" />
+    <projectItemReference itemId="170f5bb4-7c51-4c5f-8302-e46f4e05828b" />
+    <projectItemReference itemId="c3750f13-4caf-4979-b7f1-7314edb8a5ed" />
+  </projectItems>
+</package>

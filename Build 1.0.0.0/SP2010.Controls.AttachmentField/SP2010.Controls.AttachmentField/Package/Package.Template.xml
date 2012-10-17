@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ApplicationResourceFiles>
+    <App_GlobalResourceFile Location="Resources\SPAttachmentField.resx"/>
+    <App_GlobalResourceFile Location="Resources\SPAttachmentField.en-US.resx"/>
+    <App_GlobalResourceFile Location="Resources\SPAttachmentField.en-GB.resx"/>
+    <App_GlobalResourceFile Location="Resources\SPAttachmentField.ru-RU.resx"/>
+  </ApplicationResourceFiles>
+</Solution>
